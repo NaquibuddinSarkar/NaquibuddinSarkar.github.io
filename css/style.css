@@ -5,180 +5,223 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Navigation */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #111;
+    color: #f1f1f1;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Basic Styling for Body and Text */
+body, h1, h2, h3, h4, h5, p {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    color: #f1f1f1;
+}
+
+/* Header and Navigation */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em 0;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    padding: 1em;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 1.5em;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #f1f1f1;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1.2em;
+    font-weight: 400;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #ff6347;
+    color: #ffd700;
 }
 
-/* Container */
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Home Section */
+/* Hero Section */
 #home {
-    background-color: #007BFF;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
-    padding: 100px 0;
     text-align: center;
+    padding: 0 2rem;
 }
 
 #home h1 {
-    font-size: 3em;
+    font-size: 4em;
     margin-bottom: 20px;
+    color: #ffd700;
 }
 
 #home p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.5em;
+    color: #ddd;
+    max-width: 700px;
 }
 
 .btn {
     display: inline-block;
-    background-color: #ff6347;
-    color: #fff;
-    padding: 10px 25px;
+    background-color: #ffd700;
+    color: #000;
+    padding: 12px 28px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #e5533d;
+    background-color: #e5c100;
+    color: #000;
 }
 
-/* Section Headings */
+/* Section Titles */
 section h2 {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #333;
+    font-size: 2.5em;
+    color: #ffd700;
+    margin-bottom: 40px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
-section h3 {
-    color: #007BFF;
-    margin-bottom: 10px;
+section h2::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: #ffd700;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
 }
 
-/* Experience and Projects */
-.job, .project, .activity {
-    margin-bottom: 20px;
+/* Section Styling */
+section {
+    padding: 4rem 0;
+    background-color: #111;
 }
 
-.job h3, .project h3, .activity h3 {
-    font-size: 1.5em;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.job h4, .project h4, .activity h4 {
+/* About Section */
+#about p {
+    text-align: justify;
     font-size: 1.2em;
-    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
-.job span, .project span, .activity span {
-    display: block;
-    font-size: 0.9em;
-    color: #777;
+#about ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#about ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+/* Projects Section */
+.project {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+}
+
+.project h3 {
+    color: #ffd700;
     margin-bottom: 10px;
 }
 
-.job ul, .project ul, .activity ul {
-    list-style-type: disc;
-    margin-left: 20px;
+.project p {
+    color: #ccc;
+    line-height: 1.6;
 }
 
 .project .btn {
+    background-color: #000;
+    color: #ffd700;
     margin-top: 10px;
 }
 
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin: 10px 0 5px;
-}
-
-form input, form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0056b3;
+.project .btn:hover {
+    background-color: #ffd700;
+    color: #000;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000;
+    color: #777;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: 2rem 0;
+    margin-top: 4rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+footer p {
+    margin-bottom: 0;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
     nav ul {
         flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-    #home {
-        padding: 60px 0;
     }
 
     #home h1 {
@@ -186,6 +229,6 @@ footer {
     }
 
     #home p {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
