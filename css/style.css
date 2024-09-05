@@ -192,46 +192,44 @@ section {
     color: #000;
 }
 
-/* Footer */
-footer {
-    background-color: #000;
-    color: #777;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
+/* Experience Section */
+.job {
+    margin-bottom: 2rem;
 }
 
-footer p {
-    margin-bottom: 0;
+.job h3 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
 }
 
-/* Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards;
+.job h4 {
+    color: #ddd;
+    margin-bottom: 0.3rem;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.job span {
+    color: #aaa;
+    font-size: 0.9em;
 }
 
-@media screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    #home h1 {
-        font-size: 2.5em;
-    }
-
-    #home p {
-        font-size: 1.2em;
-    }
+.job p {
+    color: #ccc;
+    line-height: 1.6;
 }
+
+/* Skills Section */
+#skills ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+#skills ul li {
+    font-size: 1.1em;
+    margin-bottom: 0.8rem;
+    color: #ddd;
+}
+
 /* Contact Section */
 #contact {
     background-color: #111;
@@ -308,10 +306,72 @@ footer p {
     color: #e5c100;
 }
 
+/* Achievements Section */
+#achievements ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#achievements ul li {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+/* Extracurricular Section */
+#extracurricular ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#extracurricular ul li {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #777;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    #home h1 {
+        font-size: 2.5em;
+    }
+
+    #home p {
+        font-size: 1.2em;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
     }
 }
-
