@@ -16,9 +16,6 @@
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="skills.html">Skills</a></li>
-                <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="extracurricular.html">Extracurricular</a></li>
-                <li><a href="training.html">Training</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -27,22 +24,30 @@
     <section id="contact" class="fade-in">
         <div class="container">
             <h2>Contact Me</h2>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Your Email">
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
 
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
 
-            <h3>Connect with me</h3>
-            <p>Email: <a href="mailto:naquibuddinsarkar@gmail.com">naquibuddinsarkar@gmail.com</a></p>
-            <p>LinkedIn: <a href="http://www.linkedin.com/in/naquibuddin-sarkar" target="_blank">linkedin.com/in/naquibuddin-sarkar</a></p>
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Email: <a href="mailto:naquibuddinsarkar@gmail.com">naquibuddinsarkar@gmail.com</a></p>
+                    <p>LinkedIn: <a href="http://www.linkedin.com/in/naquibuddin-sarkar" target="_blank">linkedin.com/in/naquibuddin-sarkar</a></p>
+                </div>
+            </div>
         </div>
     </section>
 
