@@ -10,23 +10,25 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #111;
     color: #f1f1f1;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Basic Styling for Body and Text */
-body, h1, h2, h3, h4, h5, p {
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
+/* Font Styling for Headings */
+h1, h2, h3, h4, h5 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #f1f1f1;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Playfair Display', serif;
-    color: #f1f1f1;
+/* Basic Styling for Body and Text */
+p, li, span {
+    font-family: 'Poppins', sans-serif;
+    color: #ddd;
+    font-weight: 300;
 }
 
 /* Header and Navigation */
