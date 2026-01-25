@@ -86,6 +86,24 @@
 
     /* ========== Navigation ========== */
 
+    .signature-logo {
+      height: 34px;
+      width: auto;
+      opacity: 0.9;
+      transition: var(--transition-fast);
+    }
+
+    .signature-logo:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      .signature-logo {
+        height: 28px;
+      }
+    }
+
     .hero-profile {
       width: 140px;
       height: 140px;
@@ -399,6 +417,12 @@
       font-weight: 700;
       margin-bottom: 16px;
       letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    /* Light mode adjustment for Contact section heading */
+    [data-theme="light"] #contact .section-header h3 {
+      color: var(--text-secondary);
     }
 
     .section-header p {
@@ -777,7 +801,9 @@
   <header id="header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#overview" class="brand">Naquibuddin Sarkar</a>
+        <a href="#overview" class="brand">
+          <img src="/images/sign.png" alt="Naquibuddin Sarkar Signature" class="signature-logo">
+        </a>
         <button class="menu-toggle" id="menuToggle">
           <span></span>
           <span></span>
@@ -789,6 +815,7 @@
           <a href="#research">Research</a>
           <a href="#publications">Publications</a>
           <a href="#skills">Skills</a>
+          <a href="#activities">Activities</a>
           <a href="#awards">Awards</a>
           <a href="#training">Training</a>
           <a href="#contact">Contact</a>
@@ -985,6 +1012,48 @@
               <li>Leadership</li>
               <li>Time Management</li>
               <li>Adaptability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Activities & Volunteering 🤝</h3>
+          <p>Leadership, community engagement, and professional involvement</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card fade-in">
+            <h4>Executive Member — EWU Robotics Club</h4>
+            <ul>
+              <li>Organized IoT and automation workshops</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>Executive Member — EWU Electronics Club</h4>
+            <ul>
+              <li>Co-hosted Career Navigation Week</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>Executive Member — IEEE Student Branch</h4>
+            <ul>
+              <li>Organizing member for AutoCAD training sessions</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>Volunteer — Shishuder Jonno Foundation</h4>
+            <ul>
+              <li>Food, sanitary, and winter clothing distribution</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>Volunteer — EWU Electronics Club</h4>
+            <ul>
+              <li>Support team member for 15-year celebration event</li>
             </ul>
           </div>
         </div>
