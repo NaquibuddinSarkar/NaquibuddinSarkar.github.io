@@ -3,338 +3,1169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Naquibuddin Sarkar</title>
-  <meta name="description" content="Balanced engineering, technology management, and applied research portfolio of Naquibuddin Sarkar." />
-
-  <!-- Design tokens & base styles -->
+  <title>Naquibuddin Sarkar - Technology & Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Naquibuddin Sarkar - M.Sc. in Management of Technology, specializing in industrial systems, energy management, and sustainability research." />
+  
   <style>
-    :root{
-      --bg:#0a0e12;
-      --panel:#111820;
-      --panel-soft:#151e28;
-      --text:#e8edf2;
-      --muted:#9fb0c0;
-      --accent:#4fd1c5;
-      --danger:#ff6b6b;
-      --radius:14px;
-      --transition:220ms cubic-bezier(.2,.8,.3,1);
-      --max:1120px;
-    }
-    [data-theme="light"]{
-      --bg:#f5f7fa;
-      --panel:#ffffff;
-      --panel-soft:#f0f3f7;
-      --text:#0e141b;
-      --muted:#4b5b6b;
-      --accent:#2563eb;
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:linear-gradient(180deg,var(--bg),#06090c);
-      color:var(--text);
-      line-height:1.55;
+    /* ========== CSS Variables ========== */
+    :root {
+      --bg-primary: #0a0e12;
+      --bg-secondary: #111820;
+      --bg-tertiary: #151e28;
+      --text-primary: #e8edf2;
+      --text-secondary: #9fb0c0;
+      --text-muted: #6b7c8f;
+      --accent-primary: #4fd1c5;
+      --accent-secondary: #2fb8ab;
+      --accent-hover: #3dd4c6;
+      --border-color: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition-fast: 200ms cubic-bezier(0.2, 0.8, 0.3, 1);
+      --transition-normal: 300ms cubic-bezier(0.2, 0.8, 0.3, 1);
+      --max-width: 1200px;
     }
 
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+    [data-theme="light"] {
+      --bg-primary: #f5f7fa;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f0f3f7;
+      --text-primary: #0e141b;
+      --text-secondary: #4b5b6b;
+      --text-muted: #6b7c8f;
+      --accent-primary: #2563eb;
+      --accent-secondary: #1d4ed8;
+      --accent-hover: #3b82f6;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.15);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
 
-    .container{max-width:var(--max);margin:0 auto;padding:28px}
+    /* ========== Reset & Base ========== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* ---------- Navigation ---------- */
-    header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,18,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
-    .nav{display:flex;align-items:center;gap:18px}
-    .brand{font-weight:700;letter-spacing:.3px;color:var(--accent)}
-    .nav-links{margin-left:auto;display:flex;gap:14px}
-    .nav-links a{color:var(--muted);padding:8px 12px;border-radius:10px;transition:var(--transition)}
-    .nav-links a:hover{background:rgba(255,255,255,.05);color:var(--text)}
-    .theme-toggle{margin-left:10px;border:1px solid rgba(255,255,255,.1);background:none;color:var(--muted);padding:6px 10px;border-radius:10px;cursor:pointer}
+    html {
+      scroll-behavior: smooth;
+    }
 
-    main{padding-top:110px}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, #06090c 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    /* ---------- Hero ---------- */
-    .hero{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:center}
-    .hero h1{font-size:2.2rem;margin:0}
-    .hero h2{font-size:1.1rem;font-weight:500;color:var(--muted)}
-    .hero p{max-width:60ch;color:var(--muted)}
-    .hero-actions{display:flex;gap:12px;margin-top:18px}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 16px;border-radius:12px;font-weight:600;cursor:pointer;border:none}
-    .btn-primary{background:linear-gradient(180deg,var(--accent),#2fb8ab);color:#02110f}
-    .btn-secondary{background:none;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    .identity-card{background:var(--panel);border-radius:var(--radius);padding:22px;border:1px solid rgba(255,255,255,.05)}
+    /* ========== Container ========== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-    /* ---------- Section base ---------- */
-    section{margin-top:70px}
-    section h3{font-size:1.4rem;margin-bottom:18px;letter-spacing:.3px}
+    /* ========== Navigation ========== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 14, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-normal);
+    }
 
-    /* ---------- Work / Projects ---------- */
-    .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .work-card{background:var(--panel-soft);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,.05);transition:var(--transition)}
-    .work-card:hover{transform:translateY(-4px)}
-    .work-card h4{margin:6px 0}
-    .tag{display:inline-block;font-size:.75rem;font-weight:700;padding:4px 8px;border-radius:999px}
-    .tag-industrial{background:#1f3d3a;color:#9ff3e9}
-    .tag-capstone{background:#2b2f45;color:#c7d2fe}
-    .tag-academic{background:#3a2b45;color:#e9c7fe}
-    .tag-confidential{background:#402020;color:#ffb3b3}
+    [data-theme="light"] header {
+      background: rgba(245, 247, 250, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
 
-    details{margin-top:10px}
-    summary{cursor:pointer;color:var(--accent);font-weight:600}
-    summary::marker{display:none}
-    details p{color:var(--muted);margin-top:8px}
+    header.scrolled {
+      background: rgba(10, 14, 18, 0.95);
+      box-shadow: var(--shadow-md);
+    }
 
-    /* ---------- Research ---------- */
-    .research-card{background:var(--panel);border-radius:var(--radius);padding:26px;border:1px solid rgba(255,255,255,.06)}
-    .research-sub{margin-top:18px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.15)}
+    [data-theme="light"] header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-md);
+    }
 
-    /* ---------- Visual Sections ---------- */
-    .visual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .visual-card{background:var(--panel-soft);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,.05);transition:var(--transition)}
-    .visual-card:hover{transform:translateY(-4px)}
-    .visual-card h4{margin:6px 0}
-    ul.clean{padding-left:18px;color:var(--muted)}
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
 
-    /* ---------- Contact ---------- */
-    .contact-card{background:linear-gradient(180deg,var(--panel),var(--panel-soft));border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.06);display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .contact-card strong{display:block;margin-bottom:6px}
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      letter-spacing: -0.02em;
+      transition: var(--transition-fast);
+      display: none;
+    }
 
-    /* ---------- Footer ---------- */
-    footer{margin-top:90px;padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    .brand:hover {
+      color: var(--accent-hover);
+    }
 
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr}}
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background: var(--accent-primary);
+      transform: scaleX(0);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .theme-toggle {
+      margin-left: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: var(--transition-fast);
+    }
+
+    /* ========== Main Content ========== */
+    main {
+      padding-top: 100px;
+    }
+
+    /* ========== Hero Section ========== */
+    .hero {
+      padding: 80px 0 120px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ========== Buttons ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition-fast);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+      color: #0a0e12;
+      box-shadow: 0 4px 12px rgba(79, 209, 197, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 209, 197, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon {
+      padding: 10px 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-icon:hover {
+      background: var(--bg-tertiary);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ========== Identity Card ========== */
+    .identity-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      animation: fadeInRight 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .identity-card-item {
+      margin-bottom: 24px;
+    }
+
+    .identity-card-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .identity-card-item strong {
+      display: block;
+      color: var(--accent-primary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .identity-card-item p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* ========== Sections ========== */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* ========== Work Grid ========== */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .work-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: var(--transition-normal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition-normal);
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+
+    .work-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .work-card-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-industrial {
+      background: rgba(79, 209, 197, 0.15);
+      color: var(--accent-primary);
+      border: 1px solid rgba(79, 209, 197, 0.3);
+    }
+
+    .tag-capstone {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .tag-academic {
+      background: rgba(168, 85, 247, 0.15);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .tag-confidential {
+      background: rgba(239, 68, 68, 0.15);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .work-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .work-card p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .work-card .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* ========== Research Card ========== */
+    .research-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .research-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: var(--accent-primary);
+      line-height: 1.4;
+    }
+
+    .research-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .research-card ul li {
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .research-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    .research-sub {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .research-sub strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    /* ========== Skills Grid ========== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: var(--transition-normal);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-card ul li {
+      padding: 8px 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skill-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    /* ========== Awards Grid ========== */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .award-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .award-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+
+    .award-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .award-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .award-card p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    /* ========== Contact Section ========== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition-normal);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--accent-primary);
+    }
+
+    .contact-card p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      margin-top: 80px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    /* ========== Responsive Design ========== */
+    @media (max-width: 968px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 16px;
+        gap: 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 16px;
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header h3 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.1rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .section-header h3 {
+        font-size: 1.75rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+
+    /* ========== Scroll Animations ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <div class="brand">Naquibuddin Sarkar</div>
-    <nav class="nav-links">
-      <a href="#overview">Overview</a>
-      <a href="#work">Work</a>
-      <a href="#research">Research</a>
-      <a href="#skills">Skills</a>
-      <a href="#awards">Awards</a>
-      <a href="#training">Training</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="themeToggle" class="theme-toggle">Theme</button>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- Overview -->
-  <section id="overview" class="hero">
-    <div>
-      <h1>Naquibuddin Sarkar</h1>
-      <h2>M.Sc. (Management of Technology), BUET</h2>
-      <p>
-        I work at the intersection of industrial engineering systems, technology management,
-        and sustainability-oriented research. My background spans factory-scale energy systems,
-        automation, and data-driven decision support, with an emerging focus on techno-economic
-        analysis and policy-relevant engineering research.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/pdfs/Naquibuddinsarkar_CV.pdf" download>Download CV</a>
-        <a class="btn btn-secondary" href="#contact">Contact</a>
-        
+  <!-- Navigation -->
+  <header id="header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand">Naquibuddin Sarkar</a>
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#overview">Overview</a>
+          <a href="#work">Work</a>
+          <a href="#research">Research</a>
+          <a href="#skills">Skills</a>
+          <a href="#awards">Awards</a>
+          <a href="#training">Training</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle">
+          <span id="themeIcon">☀️ Light</span>
+        </button>
       </div>
     </div>
-    <div class="identity-card">
-      <strong>Current focus</strong>
-      <p>Technology strategy, energy systems, industrial digitalization, photovoltaic waste management.</p>
-      <strong>Previously</strong>
-      <p>Electrical Engineer — Project Management (SQ Group)</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="overview" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Naquibuddin Sarkar</h1>
+            <h2>M.Sc. in Management of Technology, BUET</h2>
+            <p>
+              Working at the intersection of industrial engineering systems, technology management,
+              and sustainability-oriented research. My expertise spans factory-scale energy systems,
+              automation, and data-driven decision support, with a focus on techno-economic
+              analysis and policy-relevant engineering research.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/pdfs/Naquibuddinsarkar_CV.pdf" download>
+                📄 Download CV
+              </a>
+              <a class="btn btn-secondary" href="#contact">
+                📧 Get in Touch
+              </a>
+            </div>
+          </div>
+          <div class="identity-card">
+            <div class="identity-card-item">
+              <strong>Current Focus</strong>
+              <p>Technology strategy, energy systems, industrial digitalization, photovoltaic waste management</p>
+            </div>
+            <div class="identity-card-item">
+              <strong>Previously</strong>
+              <p>Electrical Engineer — Project Management at SQ Group</p>
+            </div>
+            <div class="identity-card-item">
+              <strong>Education</strong>
+              <p>M.Sc. Management of Technology (BUET) • CGPA: 3.75/4.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Selected Work 🛠️</h3>
+          <p>Industrial projects, academic research, and technical implementations</p>
+        </div>
+        <div class="work-grid">
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-industrial">Industrial</span>
+              <span class="tag tag-confidential">Confidential</span>
+            </div>
+            <h4>Energy Monitoring System</h4>
+            <p>Industrial-scale energy monitoring across generators, substations, and utility meters using MODBUS-based data acquisition.</p>
+            <p><strong>Role:</strong> System architecture, field integration, analytics support</p>
+          </div>
+
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-capstone">Capstone</span>
+            </div>
+            <h4>Smart Spectacles for the Hearing Impaired</h4>
+            <p>Wearable Bengali speech-to-text and assistive communication system using embedded and edge ML.</p>
+            <a class="btn btn-secondary" href="/pdfs/Communication_Assistive_Device.pdf" download>View Project</a>
+          </div>
+
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-academic">Academic</span>
+            </div>
+            <h4>IoT-Based Energy Monitoring</h4>
+            <p>End-to-end sensor-to-dashboard system for real-time industrial energy visibility.</p>
+            <a class="btn btn-secondary" href="/pdfs/IoT_Energy_Monitoring_Report.pdf" download>View Report</a>
+          </div>
+
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-academic">Academic</span>
+            </div>
+            <h4>PLC-Based Smart Irrigation System</h4>
+            <p>Automated irrigation using PLC logic and soil moisture sensing to optimize water usage.</p>
+          </div>
+
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-academic">Academic</span>
+            </div>
+            <h4>Gas Leakage Detection System</h4>
+            <p>Arduino-based gas detection system with alarm and GSM-based alerting.</p>
+          </div>
+
+          <div class="work-card fade-in">
+            <div class="work-card-tags">
+              <span class="tag tag-academic">Academic</span>
+            </div>
+            <h4>Standalone Photovoltaic System Design</h4>
+            <p>Technical sizing and techno-economic analysis of standalone PV systems for local applications.</p>
+            <a class="btn btn-secondary" href="/pdfs/Photovoltaic_System_Report.pdf" download>View Analysis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Ongoing Research 🔬</h3>
+          <p>Sustainability-focused engineering research with policy implications</p>
+        </div>
+        <div class="research-card fade-in">
+          <h4>Techno-Economic Analysis of a Three-Tier Solar Panel Recycling Framework for Sustainable Photovoltaic Waste Management in Bangladesh</h4>
+          <ul>
+            <li>Forecasting future photovoltaic waste using statistical and machine-learning models</li>
+            <li>Experimental evaluation of low-temperature delamination techniques for solar cell recovery</li>
+            <li>Development of a comprehensive techno-economic framework covering material recovery and hazardous waste handling</li>
+            <li>Assessment of scalability and policy relevance for emerging solar markets</li>
+          </ul>
+          <div class="research-sub">
+            <strong>Publications / Working Papers (Planned)</strong>
+            <ul>
+              <li>Journal article on PV waste forecasting and uncertainty analysis</li>
+              <li>Conference paper on low-temperature delamination methods</li>
+              <li>Policy brief on PV recycling pathways for Bangladesh</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Skills & Methods 🧩</h3>
+          <p>Technical competencies and professional capabilities</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card fade-in">
+            <h4>⚙️ Technical</h4>
+            <ul>
+              <li>PLC Programming</li>
+              <li>Industrial IoT & Energy Monitoring</li>
+              <li>AutoCAD (Electrical)</li>
+              <li>MS Excel (Engineering Analysis)</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>📊 Business & Tools</h4>
+            <ul>
+              <li>Data Analysis & Optimization</li>
+              <li>Techno-economic Analysis</li>
+              <li>Technical Documentation</li>
+              <li>Cross-functional Coordination</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>💻 Programming & Analytics</h4>
+            <ul>
+              <li>Python</li>
+              <li>MATLAB</li>
+              <li>Data Processing & Visualization</li>
+              <li>Machine Learning (CNN, TensorFlow)</li>
+            </ul>
+          </div>
+          <div class="skill-card fade-in">
+            <h4>🧠 Soft Skills</h4>
+            <ul>
+              <li>Problem-Solving</li>
+              <li>Communication</li>
+              <li>Leadership</li>
+              <li>Time Management</li>
+              <li>Adaptability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Awards & Recognition 🏆</h3>
+          <p>Academic and professional achievements</p>
+        </div>
+        <div class="awards-grid">
+          <div class="award-card fade-in">
+            <div class="award-icon">🥈</div>
+            <h4>Capstone Project Show</h4>
+            <p>1st Runner-up — East West University</p>
+            <a class="btn btn-secondary" href="/pdfs/Capstone_Award.pdf" download>View Certificate</a>
+          </div>
+          <div class="award-card fade-in">
+            <div class="award-icon">🥈</div>
+            <h4>SympSIST Humanitarian Contest</h4>
+            <p>1st Runner-up — ICCIT 2022</p>
+            <a class="btn btn-secondary" href="/pdfs/SympSIST_Award.pdf" download>View Certificate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Professional Training 🎓</h3>
+          <p>Certifications and skill development programs</p>
+        </div>
+        <div class="awards-grid">
+          <div class="award-card fade-in">
+            <div class="award-icon">📐</div>
+            <h4>AutoCAD Electrical Design</h4>
+            <p>Professional certification in electrical drafting</p>
+            <a class="btn btn-secondary" href="/pdfs/AutoCAD_Cert.pdf" download>View Certificate</a>
+          </div>
+          <div class="award-card fade-in">
+            <div class="award-icon">🔌</div>
+            <h4>PLC, VFD, HMI</h4>
+            <p>Industrial automation systems training</p>
+            <a class="btn btn-secondary" href="/pdfs/PLC_Cert.pdf" download>View Certificate</a>
+          </div>
+          <div class="award-card fade-in">
+            <div class="award-icon">🧭</div>
+            <h4>Employability Skills</h4>
+            <p>Professional development program</p>
+            <a class="btn btn-secondary" href="/pdfs/Employability_Cert.pdf" download>View Certificate</a>
+          </div>
+          <div class="award-card fade-in">
+            <div class="award-icon">🌐</div>
+            <h4>IoT Workshop</h4>
+            <p>Internet of Things applications</p>
+            <a class="btn btn-secondary" href="/pdfs/IoT_Workshop.pdf" download>View Certificate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h3>Get in Touch 📬</h3>
+          <p>Open to collaboration, research opportunities, and professional engagements</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card fade-in">
+            <strong>📧 Email</strong>
+            <p>naquibuddinsarkar@gmail.com</p>
+            <a class="btn btn-icon" href="mailto:naquibuddinsarkar@gmail.com">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Send Email
+            </a>
+          </div>
+          <div class="contact-card fade-in">
+            <strong>🔗 LinkedIn</strong>
+            <p>linkedin.com/in/naquibuddin-sarkar</p>
+            <a class="btn btn-icon" href="https://linkedin.com/in/naquibuddin-sarkar" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              Connect
+            </a>
+          </div>
+          <div class="contact-card fade-in">
+            <strong>🌐 GitHub</strong>
+            <p>naquibuddinsarkar.github.io</p>
+            <a class="btn btn-icon" href="https://naquibuddinsarkar.github.io" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              Visit
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Naquibuddin Sarkar · Built with passion for engineering and technology</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- Work -->
-  <section id="work">
-    <h3>Selected Work 🛠️</h3>
-    <div class="work-grid">
+  <!-- JavaScript -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      <div class="work-card">
-        <span class="tag tag-industrial">Industrial</span>
-        <span class="tag tag-confidential">CONFIDENTIAL</span>
-        <h4>Energy Monitoring System</h4>
-        <p class="muted">Industrial-scale energy monitoring across generators, substations, and utility meters using MODBUS-based data acquisition.</p>
-        <p class="muted">Role: system architecture, field integration, analytics support.</p>
-      </div>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
 
-      <div class="work-card">
-        <span class="tag tag-capstone">Capstone</span>
-        <h4>Smart Spectacles for the Hearing Impaired</h4>
-        <p class="muted">Wearable Bengali speech-to-text and assistive communication system using embedded and edge ML.</p>
-        <a class="btn btn-secondary" href="/pdfs/Communication_Assistive_Device.pdf" download>View project</a>
-      </div>
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeIcon.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+    }
 
-      <div class="work-card">
-        <span class="tag tag-academic">Academic</span>
-        <h4>IoT-Based Energy Monitoring</h4>
-        <p class="muted">End-to-end sensor-to-dashboard system for real-time industrial energy visibility.</p>
-        <a class="btn btn-secondary" href="/pdfs/IoT_Energy_Monitoring_Report.pdf" download>View report</a>
-      </div>
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
 
-      <div class="work-card">
-        <span class="tag tag-academic">Academic</span>
-        <h4>PLC-Based Smart Irrigation System</h4>
-        <p class="muted">Automated irrigation using PLC logic and soil moisture sensing to optimize water usage.</p>
-      </div>
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 
-      <div class="work-card">
-        <span class="tag tag-academic">Academic</span>
-        <h4>Gas Leakage Detection System</h4>
-        <p class="muted">Arduino-based gas detection system with alarm and GSM-based alerting.</p>
-      </div>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
 
-      <div class="work-card">
-        <span class="tag tag-academic">Academic</span>
-        <h4>Standalone Photovoltaic System Design</h4>
-        <p class="muted">Technical sizing and techno-economic analysis of standalone PV systems for local applications.</p>
-        <a class="btn btn-secondary" href="/pdfs/Photovoltaic_System_Report.pdf" download>View analysis</a>
-      </div>
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
-    </div>
-  </section>
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
 
-  <!-- Research -->
-  <section id="research">
-    <h3>Ongoing Research 🔬</h3>
-    <div class="research-card">
-      <h4>Techno-Economic Analysis of a Three-Tier Solar Panel Recycling Framework for Sustainable Photovoltaic Waste Management in Bangladesh</h4>
-      <ul class="clean">
-        <li>Forecasting future photovoltaic waste using statistical and machine-learning models.</li>
-        <li>Experimental evaluation of low-temperature delamination techniques for solar cell recovery.</li>
-        <li>Development of a comprehensive techno-economic framework covering material recovery and hazardous waste handling.</li>
-        <li>Assessment of scalability and policy relevance for emerging solar markets.</li>
-      </ul>
-      <div class="research-sub">
-        <strong>Publications / Working Papers (planned)</strong>
-        <ul class="clean">
-          <li>Journal article on PV waste forecasting and uncertainty analysis</li>
-          <li>Conference paper on low-temperature delamination methods</li>
-          <li>Policy brief on PV recycling pathways for Bangladesh</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    let lastScroll = 0;
 
-  <!-- Credentials -->
-  <section id="skills">
-    <h3>Skills & Methods 🧩</h3>
-    <div class="visual-grid">
-      <div class="visual-card">
-        <h4>⚙️ Technical</h4>
-        <ul class="clean">
-          <li>PLC Programming</li>
-          <li>Industrial IoT & Energy Monitoring</li>
-          <li>AutoCAD (Electrical)</li>
-          <li>MS Excel (engineering analysis & reporting)</li>
-        </ul>
-      </div>
-      <div class="visual-card">
-        <h4>📊 Business & Tools</h4>
-        <ul class="clean">
-          <li>Data Analysis & Optimization</li>
-          <li>Techno-economic Analysis</li>
-          <li>Technical Documentation</li>
-          <li>Cross-functional Coordination</li>
-        </ul>
-      </div>
-      <div class="visual-card">
-        <h4>💻 Programming & Analytics</h4>
-        <ul class="clean">
-          <li>Python</li>
-          <li>MATLAB</li>
-          <li>Data Processing & Visualization</li>
-        </ul>
-      </div>
-      <div class="visual-card">
-        <h4>🧠 Soft Skills</h4>
-        <ul class="clean">
-          <li>Problem-Solving</li>
-          <li>Communication</li>
-          <li>Leadership</li>
-          <li>Time Management</li>
-          <li>Adaptability</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
 
-  <section id="awards">
-    <h3>Awards & Certifications 🏆</h3>
-    <div class="visual-grid">
-      <div class="visual-card">
-        <h4>🏅 Capstone Project Show</h4>
-        <p class="muted">1st Runner-up — East West University</p>
-        <a class="btn btn-secondary" href="/pdfs/Capstone_Award.pdf">View Certificate</a>
-      </div>
-      <div class="visual-card">
-        <h4>🏅 SympSIST Humanitarian Project Design Contest</h4>
-        <p class="muted">1st Runner-up — ICCIT 2022</p>
-        <a class="btn btn-secondary" href="/pdfs/SympSIST_Award.pdf">View Certificate</a>
-      </div>
-    </div>
-  </section>
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  <section id="training">
-    <h3>Professional Training 🎓</h3>
-    <div class="visual-grid">
-      <div class="visual-card"><h4>📐 AutoCAD Electrical Design & Drafting</h4><a class="btn btn-secondary" href="/pdfs/AutoCAD_Cert.pdf">View Certificate</a></div>
-      <div class="visual-card"><h4>🔌 PLC, VFD, HMI</h4><a class="btn btn-secondary" href="/pdfs/PLC_Cert.pdf">View Certificate</a></div>
-      <div class="visual-card"><h4>🧭 Employability Skills Development</h4><a class="btn btn-secondary" href="/pdfs/Employability_Cert.pdf">View Certificate</a></div>
-      <div class="visual-card"><h4>🌐 IoT Workshop</h4><a class="btn btn-secondary" href="/pdfs/IoT_Workshop.pdf">View Certificate</a></div>
-    </div>
-  </section>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
 
-  <!-- Contact -->
-  <section id="contact">
-    <h3>Contact</h3>
-    <div class="contact-card">
-      <div>
-        <strong>Email</strong>
-        <p class="muted">naquibuddinsarkar [at] gmail [dot] com</p>
-        <a class="btn btn-secondary" href="mailto:naquibuddinsarkar@gmail.com">📧 Email Me</a>
-      </div>
-      <div>
-        <strong>LinkedIn</strong>
-        <p class="muted">linkedin.com/in/naquibuddin-sarkar</p>
-        <a class="btn btn-secondary" href="https://linkedin.com/in/naquibuddin-sarkar" target="_blank" rel="noopener">🔗 LinkedIn</a>
-      </div>
-      <div>
-        <strong>Availability</strong>
-        <p class="muted">Open to industry, research collaboration, and policy-oriented engineering roles.</p>
-        <a class="btn btn-secondary" href="/pdfs/Naquibuddinsarkar_CV.pdf" download>Download CV</a>
-      </div>
-    </div>
-  </section>
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
 
-</main>
+    // Smooth scroll offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-<footer>
-  <div class="container">
-    © <span id="year"></span> Naquibuddin Sarkar · GitHub Pages
-  </div>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const toggle = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  toggle.onclick = () => {
-    const t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', t);
-    localStorage.setItem('theme', t);
-  };
-  const saved = localStorage.getItem('theme');
-  if(saved) root.setAttribute('data-theme', saved);
-</script>
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
