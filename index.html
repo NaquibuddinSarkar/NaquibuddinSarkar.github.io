@@ -1,42 +1,340 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Naquibuddin Sarkar | Electrical Engineer</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naquibuddin Sarkar</title>
+  <meta name="description" content="Balanced engineering, technology management, and applied research portfolio of Naquibuddin Sarkar." />
 
+  <!-- Design tokens & base styles -->
+  <style>
+    :root{
+      --bg:#0a0e12;
+      --panel:#111820;
+      --panel-soft:#151e28;
+      --text:#e8edf2;
+      --muted:#9fb0c0;
+      --accent:#4fd1c5;
+      --danger:#ff6b6b;
+      --radius:14px;
+      --transition:220ms cubic-bezier(.2,.8,.3,1);
+      --max:1120px;
+    }
+    [data-theme="light"]{
+      --bg:#f5f7fa;
+      --panel:#ffffff;
+      --panel-soft:#f0f3f7;
+      --text:#0e141b;
+      --muted:#4b5b6b;
+      --accent:#2563eb;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg),#06090c);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max);margin:0 auto;padding:28px}
+
+    /* ---------- Navigation ---------- */
+    header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,18,.72);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav{display:flex;align-items:center;gap:18px}
+    .brand{font-weight:700;letter-spacing:.3px;color:var(--accent)}
+    .nav-links{margin-left:auto;display:flex;gap:14px}
+    .nav-links a{color:var(--muted);padding:8px 12px;border-radius:10px;transition:var(--transition)}
+    .nav-links a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+    .theme-toggle{margin-left:10px;border:1px solid rgba(255,255,255,.1);background:none;color:var(--muted);padding:6px 10px;border-radius:10px;cursor:pointer}
+
+    main{padding-top:110px}
+
+    /* ---------- Hero ---------- */
+    .hero{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:center}
+    .hero h1{font-size:2.2rem;margin:0}
+    .hero h2{font-size:1.1rem;font-weight:500;color:var(--muted)}
+    .hero p{max-width:60ch;color:var(--muted)}
+    .hero-actions{display:flex;gap:12px;margin-top:18px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 16px;border-radius:12px;font-weight:600;cursor:pointer;border:none}
+    .btn-primary{background:linear-gradient(180deg,var(--accent),#2fb8ab);color:#02110f}
+    .btn-secondary{background:none;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+
+    .identity-card{background:var(--panel);border-radius:var(--radius);padding:22px;border:1px solid rgba(255,255,255,.05)}
+
+    /* ---------- Section base ---------- */
+    section{margin-top:70px}
+    section h3{font-size:1.4rem;margin-bottom:18px;letter-spacing:.3px}
+
+    /* ---------- Work / Projects ---------- */
+    .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .work-card{background:var(--panel-soft);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,.05);transition:var(--transition)}
+    .work-card:hover{transform:translateY(-4px)}
+    .work-card h4{margin:6px 0}
+    .tag{display:inline-block;font-size:.75rem;font-weight:700;padding:4px 8px;border-radius:999px}
+    .tag-industrial{background:#1f3d3a;color:#9ff3e9}
+    .tag-capstone{background:#2b2f45;color:#c7d2fe}
+    .tag-academic{background:#3a2b45;color:#e9c7fe}
+    .tag-confidential{background:#402020;color:#ffb3b3}
+
+    details{margin-top:10px}
+    summary{cursor:pointer;color:var(--accent);font-weight:600}
+    summary::marker{display:none}
+    details p{color:var(--muted);margin-top:8px}
+
+    /* ---------- Research ---------- */
+    .research-card{background:var(--panel);border-radius:var(--radius);padding:26px;border:1px solid rgba(255,255,255,.06)}
+    .research-sub{margin-top:18px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.15)}
+
+    /* ---------- Visual Sections ---------- */
+    .visual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .visual-card{background:var(--panel-soft);border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,.05);transition:var(--transition)}
+    .visual-card:hover{transform:translateY(-4px)}
+    .visual-card h4{margin:6px 0}
+    ul.clean{padding-left:18px;color:var(--muted)}
+
+    /* ---------- Contact ---------- */
+    .contact-card{background:linear-gradient(180deg,var(--panel),var(--panel-soft));border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.06);display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .contact-card strong{display:block;margin-bottom:6px}
+
+    /* ---------- Footer ---------- */
+    footer{margin-top:90px;padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="achievements.html">Achievements</a></li>
-                <li><a href="extracurricular.html">Extracurricular</a></li>
-                <li><a href="training.html">Training</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="fade-in">
-        <div class="container">
-            <img src="images/NAQUIB.png" alt="Naquibuddin Sarkar" class="profile-photo">
-            <h1>Naquibuddin Sarkar</h1>
-            <p>Electrical Engineer specializing in digital systems, IoT, and industrial automation. Passionate about bringing innovation to real-world engineering projects.</p>
-            <a href="about.html" class="btn">Learn More</a>
-        </div>
-    </section>
+<header>
+  <div class="container nav">
+    <div class="brand">Naquibuddin Sarkar</div>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#awards">Awards</a>
+      <a href="#training">Training</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle">Theme</button>
+  </div>
+</header>
 
-    <footer>
-        <p>&copy; 2024 Naquibuddin Sarkar</p>
-    </footer>
+<main class="container">
+
+  <!-- Overview -->
+  <section id="overview" class="hero">
+    <div>
+      <h1>Naquibuddin Sarkar</h1>
+      <h2>M.Sc. (Management of Technology), BUET</h2>
+      <p>
+        I work at the intersection of industrial engineering systems, technology management,
+        and sustainability-oriented research. My background spans factory-scale energy systems,
+        automation, and data-driven decision support, with an emerging focus on techno-economic
+        analysis and policy-relevant engineering research.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/pdfs/Naquibuddinsarkar_CV.pdf" download>Download CV</a>
+        <a class="btn btn-secondary" href="#contact">Contact</a>
+        
+      </div>
+    </div>
+    <div class="identity-card">
+      <strong>Current focus</strong>
+      <p>Technology strategy, energy systems, industrial digitalization, photovoltaic waste management.</p>
+      <strong>Previously</strong>
+      <p>Electrical Engineer — Project Management (SQ Group)</p>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <h3>Selected Work 🛠️</h3>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <span class="tag tag-industrial">Industrial</span>
+        <span class="tag tag-confidential">CONFIDENTIAL</span>
+        <h4>Energy Monitoring System</h4>
+        <p class="muted">Industrial-scale energy monitoring across generators, substations, and utility meters using MODBUS-based data acquisition.</p>
+        <p class="muted">Role: system architecture, field integration, analytics support.</p>
+      </div>
+
+      <div class="work-card">
+        <span class="tag tag-capstone">Capstone</span>
+        <h4>Smart Spectacles for the Hearing Impaired</h4>
+        <p class="muted">Wearable Bengali speech-to-text and assistive communication system using embedded and edge ML.</p>
+        <a class="btn btn-secondary" href="/pdfs/Communication_Assistive_Device.pdf" download>View project</a>
+      </div>
+
+      <div class="work-card">
+        <span class="tag tag-academic">Academic</span>
+        <h4>IoT-Based Energy Monitoring</h4>
+        <p class="muted">End-to-end sensor-to-dashboard system for real-time industrial energy visibility.</p>
+        <a class="btn btn-secondary" href="/pdfs/IoT_Energy_Monitoring_Report.pdf" download>View report</a>
+      </div>
+
+      <div class="work-card">
+        <span class="tag tag-academic">Academic</span>
+        <h4>PLC-Based Smart Irrigation System</h4>
+        <p class="muted">Automated irrigation using PLC logic and soil moisture sensing to optimize water usage.</p>
+      </div>
+
+      <div class="work-card">
+        <span class="tag tag-academic">Academic</span>
+        <h4>Gas Leakage Detection System</h4>
+        <p class="muted">Arduino-based gas detection system with alarm and GSM-based alerting.</p>
+      </div>
+
+      <div class="work-card">
+        <span class="tag tag-academic">Academic</span>
+        <h4>Standalone Photovoltaic System Design</h4>
+        <p class="muted">Technical sizing and techno-economic analysis of standalone PV systems for local applications.</p>
+        <a class="btn btn-secondary" href="/pdfs/Photovoltaic_System_Report.pdf" download>View analysis</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <h3>Ongoing Research 🔬</h3>
+    <div class="research-card">
+      <h4>Techno-Economic Analysis of a Three-Tier Solar Panel Recycling Framework for Sustainable Photovoltaic Waste Management in Bangladesh</h4>
+      <ul class="clean">
+        <li>Forecasting future photovoltaic waste using statistical and machine-learning models.</li>
+        <li>Experimental evaluation of low-temperature delamination techniques for solar cell recovery.</li>
+        <li>Development of a comprehensive techno-economic framework covering material recovery and hazardous waste handling.</li>
+        <li>Assessment of scalability and policy relevance for emerging solar markets.</li>
+      </ul>
+      <div class="research-sub">
+        <strong>Publications / Working Papers (planned)</strong>
+        <ul class="clean">
+          <li>Journal article on PV waste forecasting and uncertainty analysis</li>
+          <li>Conference paper on low-temperature delamination methods</li>
+          <li>Policy brief on PV recycling pathways for Bangladesh</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section id="skills">
+    <h3>Skills & Methods 🧩</h3>
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h4>⚙️ Technical</h4>
+        <ul class="clean">
+          <li>PLC Programming</li>
+          <li>Industrial IoT & Energy Monitoring</li>
+          <li>AutoCAD (Electrical)</li>
+          <li>MS Excel (engineering analysis & reporting)</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>📊 Business & Tools</h4>
+        <ul class="clean">
+          <li>Data Analysis & Optimization</li>
+          <li>Techno-economic Analysis</li>
+          <li>Technical Documentation</li>
+          <li>Cross-functional Coordination</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>💻 Programming & Analytics</h4>
+        <ul class="clean">
+          <li>Python</li>
+          <li>MATLAB</li>
+          <li>Data Processing & Visualization</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <h4>🧠 Soft Skills</h4>
+        <ul class="clean">
+          <li>Problem-Solving</li>
+          <li>Communication</li>
+          <li>Leadership</li>
+          <li>Time Management</li>
+          <li>Adaptability</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h3>Awards & Certifications 🏆</h3>
+    <div class="visual-grid">
+      <div class="visual-card">
+        <h4>🏅 Capstone Project Show</h4>
+        <p class="muted">1st Runner-up — East West University</p>
+        <a class="btn btn-secondary" href="/pdfs/Capstone_Award.pdf">View Certificate</a>
+      </div>
+      <div class="visual-card">
+        <h4>🏅 SympSIST Humanitarian Project Design Contest</h4>
+        <p class="muted">1st Runner-up — ICCIT 2022</p>
+        <a class="btn btn-secondary" href="/pdfs/SympSIST_Award.pdf">View Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="training">
+    <h3>Professional Training 🎓</h3>
+    <div class="visual-grid">
+      <div class="visual-card"><h4>📐 AutoCAD Electrical Design & Drafting</h4><a class="btn btn-secondary" href="/pdfs/AutoCAD_Cert.pdf">View Certificate</a></div>
+      <div class="visual-card"><h4>🔌 PLC, VFD, HMI</h4><a class="btn btn-secondary" href="/pdfs/PLC_Cert.pdf">View Certificate</a></div>
+      <div class="visual-card"><h4>🧭 Employability Skills Development</h4><a class="btn btn-secondary" href="/pdfs/Employability_Cert.pdf">View Certificate</a></div>
+      <div class="visual-card"><h4>🌐 IoT Workshop</h4><a class="btn btn-secondary" href="/pdfs/IoT_Workshop.pdf">View Certificate</a></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h3>Contact</h3>
+    <div class="contact-card">
+      <div>
+        <strong>Email</strong>
+        <p class="muted">naquibuddinsarkar [at] gmail [dot] com</p>
+        <a class="btn btn-secondary" href="mailto:naquibuddinsarkar@gmail.com">📧 Email Me</a>
+      </div>
+      <div>
+        <strong>LinkedIn</strong>
+        <p class="muted">linkedin.com/in/naquibuddin-sarkar</p>
+        <a class="btn btn-secondary" href="https://linkedin.com/in/naquibuddin-sarkar" target="_blank" rel="noopener">🔗 LinkedIn</a>
+      </div>
+      <div>
+        <strong>Availability</strong>
+        <p class="muted">Open to industry, research collaboration, and policy-oriented engineering roles.</p>
+        <a class="btn btn-secondary" href="/pdfs/Naquibuddinsarkar_CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Naquibuddin Sarkar · GitHub Pages
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  toggle.onclick = () => {
+    const t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  };
+  const saved = localStorage.getItem('theme');
+  if(saved) root.setAttribute('data-theme', saved);
+</script>
+
 </body>
 </html>
