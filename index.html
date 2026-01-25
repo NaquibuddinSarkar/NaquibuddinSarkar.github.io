@@ -85,6 +85,28 @@
     }
 
     /* ========== Navigation ========== */
+
+    .hero-profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-primary);
+      margin-bottom: 24px;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 640px) {
+      .hero-profile {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    .brand-logo:hover {
+      transform: scale(1.05);
+    }
+
     header {
       position: fixed;
       top: 0;
@@ -755,7 +777,7 @@
   <header id="header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#overview" class="brand"><img src="/images/profile.gif" alt="NS Logo" style="height:56px;width:auto;border-radius:50%;border:2px solid var(--accent-primary);"></a>
+        <a href="#overview" class="brand">Naquibuddin Sarkar</a>
         <button class="menu-toggle" id="menuToggle">
           <span></span>
           <span></span>
@@ -785,6 +807,7 @@
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
+            <img src="/images/profile.gif" alt="Naquibuddin Sarkar" class="hero-profile">
             <h1>Naquibuddin Sarkar</h1>
             <h2>M.Sc. in Management of Technology, BUET</h2>
             <p>
