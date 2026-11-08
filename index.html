@@ -10,7 +10,13 @@ Naquibuddin Sarkar | Technology Management, Sustainable Energy
 </title>
 
   <link rel="icon" type="image/png" href="/favicon.png">
-  <meta name="description" content="Naquibuddin Sarkar - M.Sc. candidate in Management of Technology at BUET, specializing in industrial systems, technology management, and sustainability research." />
+  <meta name="description" content="Naquibuddin Sarkar is an electrical engineer and Management of Technology M.Sc. candidate at BUET, working across industrial systems, data analytics, renewable energy and sustainability research." />
+  <meta name="theme-color" content="#080d16" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Naquibuddin Sarkar | Engineering, Technology & Sustainability" />
+  <meta property="og:description" content="Engineering systems, technology management, data analytics and sustainability research." />
+  <meta property="og:url" content="https://naquibuddinsarkar.github.io/" />
+  <meta property="og:image" content="https://naquibuddinsarkar.github.io/images/profile.gif" />
 
   <script type="application/ld+json">
 {
@@ -1080,7 +1086,7 @@ Naquibuddin Sarkar | Technology Management, Sustainable Energy
         <a href="#overview" class="brand">
           <img src="/images/sign.png" alt="Naquibuddin Sarkar Signature" class="signature-logo">
         </a>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -1445,7 +1451,8 @@ Naquibuddin Sarkar | Technology Management, Sustainable Energy
     });
 
     // Load saved theme
-    let savedTheme = 'dark';\n    try { savedTheme = localStorage.getItem('theme') || 'dark'; } catch (error) { /* Use the default theme. */ }
+    let savedTheme = 'dark';
+    try { savedTheme = localStorage.getItem('theme') || 'dark'; } catch (error) { /* Use the default theme. */ }
     setTheme(savedTheme);
 
     // Mobile menu toggle
@@ -1453,13 +1460,15 @@ Naquibuddin Sarkar | Technology Management, Sustainable Energy
     const navLinks = document.getElementById('navLinks');
 
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      const isOpen = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     // Close mobile menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
 
