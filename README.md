@@ -1,34 +1,26 @@
 # Naquibuddin Sarkar — Portfolio
 
-Personal portfolio and project archive of **Naquibuddin Sarkar**, an electrical engineer and M.Sc. candidate in Management of Technology at the Bangladesh University of Engineering and Technology (BUET).
+Personal portfolio and project archive of **Naquibuddin Sarkar**, an M.Sc. candidate in Management of Technology at BUET and an Electrical and Electronic Engineering graduate.
 
 **Live website:** https://naquibuddinsarkar.github.io/
 
-## Focus areas
-
-- Industrial engineering systems, energy monitoring and automation
-- Technology management and techno-economic analysis
-- Renewable energy and photovoltaic waste management
-- Data analytics, forecasting and applied machine learning
-- Sustainability, technology adoption and policy-oriented research
+## Profile focus
+- Technology management, project and operations coordination
+- Data analysis, technology forecasting and risk/uncertainty analysis
+- Renewable energy, photovoltaic waste management and techno-economic assessment
+- Industrial electrical systems, MODBUS energy monitoring and automation
+- Research, analytical reporting and sustainability
 
 ## Portfolio sections
+Overview, professional experience, selected engineering and analytical projects, ongoing research, publications and working papers, skills, leadership and activities, awards, professional training, and contact.
 
-The website brings together an overview, selected engineering and management projects, ongoing research, publications and working papers, skills, activities, awards, training and contact information. Project reports and certificates are available in the `pdfs/` directory.
+## CV
+The latest CV is available as a responsive, print-friendly web page at [View CV](cv.html). Use **Print / Save as PDF** on that page to save a PDF copy.
 
 ## Built with
-
-- Semantic HTML
-- CSS custom properties and responsive layouts
-- Vanilla JavaScript for theme switching, navigation and scroll interactions
-- GitHub Pages for hosting
-
-## Local preview
-
-This is a static site. Open `index.html` in a browser, or serve the repository root with any local static-file server.
+Semantic HTML, CSS custom properties, responsive layouts and vanilla JavaScript. Hosted on GitHub Pages.
 
 ## Links
-
 - Website: https://naquibuddinsarkar.github.io/
 - LinkedIn: https://www.linkedin.com/in/naquibuddin-sarkar
 - Email: naquibuddinsarkar@gmail.com
